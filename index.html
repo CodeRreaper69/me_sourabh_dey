@@ -7,36 +7,33 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
-/*         :root {
-            --primary: #1e88e5;
-            --dark: #212121;
-            --light: #f5f5f5;
-            --shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-        } */
-
-     :root {
-    --primary: #667eea;
-    --secondary: #764ba2;
-    --accent: #f093fb;
-    --dark: #2d3748;
-    --light: #f7fafc;
-    --text-gray: #4a5568;
-    --card-bg: rgba(255, 255, 255, 0.95);
-    --shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
-    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
-}
+        :root {
+            --primary: #2563eb;
+            --secondary: #1e40af;
+            --accent: #3b82f6;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --text-gray: #475569;
+            --text-light: #64748b;
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 20px 25px rgba(0, 0, 0, 0.1);
+            --gradient-primary: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+            --gradient-accent: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+        }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         body {
-            background-color: var(--light);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
             color: var(--dark);
             line-height: 1.6;
+            min-height: 100vh;
         }
         
         .container {
@@ -44,135 +41,165 @@
             margin: 0 auto;
             padding: 0 20px;
         }
+
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(37, 99, 235, 0.15);
+        }
         
         header {
-            background: linear-gradient(135deg, #1e88e5, #0d47a1);
+            background: var(--gradient-primary);
             color: white;
-            padding: 100px 0 60px;
+            padding: 80px 0 60px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
         
         .profile-pic {
-            width: 150px;
-            height: 150px;
+            width: 160px;
+            height: 160px;
             border-radius: 50%;
             object-fit: cover;
-            border: 5px solid white;
-            box-shadow: var(--shadow);
-            margin-bottom: 20px;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
         }
         
         .hero-text h1 {
-            font-size: 3rem;
+            font-size: 3.2rem;
             font-weight: 700;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+            letter-spacing: -0.02em;
         }
         
         .hero-text p {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             max-width: 700px;
             margin: 0 auto;
-            opacity: 0.9;
+            opacity: 0.95;
+            font-weight: 400;
+            position: relative;
+            z-index: 1;
         }
         
         .social-links {
-            margin-top: 30px;
+            margin-top: 35px;
+            position: relative;
+            z-index: 1;
         }
         
         .social-links a {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
             margin: 0 10px;
             color: white;
-            font-size: 1.5rem;
-            transition: transform 0.3s;
+            font-size: 1.3rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
         }
         
         .social-links a:hover {
-            transform: translateY(-3px);
-        }
-		.social-links a.emoji-link {
-			color: white !important; /* Use !important to try and override other styles */
-			text-decoration: none; /* Ensure no underline */
-			font-size: 1.5rem; /* Match icon size */
-			display: inline-flex;
-			align-items: center;
-			justify-content: center;
-			line-height: 1;
-		}
-				
-        section {
-            padding: 60px 0;
+            transform: translateY(-3px) scale(1.1);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         }
         
-        section h2 {
+        .section {
+            padding: 50px 30px;
+        }
+        
+        .section-title {
             text-align: center;
-            font-size: 2rem;
-            margin-bottom: 40px;
-            color: var(--primary);
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 50px;
+            color: var(--dark);
+            position: relative;
+            letter-spacing: -0.02em;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--gradient-accent);
+            border-radius: 2px;
         }
         
         .quote {
             font-style: italic;
             text-align: center;
             max-width: 800px;
-            margin: 0 auto 40px;
-            color: #555;
-            font-size: 1.1rem;
+            margin: 0 auto 50px;
+            color: var(--text-gray);
+            font-size: 1.2rem;
+            font-weight: 500;
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(30, 64, 175, 0.05) 100%);
+            border-radius: 15px;
+            border-left: 4px solid var(--primary);
         }
         
         .about-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
         }
         
         .about-text {
-            flex: 1;
-            min-width: 300px;
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: var(--text-gray);
+            text-align: justify;
         }
         
         .about-text p {
-            margin-bottom: 20px;
-        }
-        
-        .skills {
-            flex: 1;
-            min-width: 300px;
-        }
-        
-        .skill-category {
-            margin-bottom: 20px;
-        }
-        
-        .skill-category h3 {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            color: var(--primary);
-        }
-        
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        
-        .skill-tag {
-            background-color: #e3f2fd;
-            color: var(--primary);
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            box-shadow: var(--shadow);
-        }
-        
-        .experience {
-            background-color: white;
+            margin-bottom: 25px;
         }
         
         .timeline {
             position: relative;
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
         }
         
@@ -180,30 +207,33 @@
             content: '';
             position: absolute;
             width: 4px;
-            background-color: var(--primary);
+            background: var(--gradient-accent);
             top: 0;
             bottom: 0;
             left: 50%;
             margin-left: -2px;
+            border-radius: 2px;
         }
         
         .timeline-item {
-            padding: 10px 40px;
+            padding: 15px 50px;
             position: relative;
             width: 50%;
             box-sizing: border-box;
+            transition: all 0.3s ease;
         }
         
         .timeline-item::after {
             content: '';
             position: absolute;
-            width: 20px;
-            height: 20px;
-            background-color: white;
+            width: 24px;
+            height: 24px;
+            background: white;
             border: 4px solid var(--primary);
             border-radius: 50%;
-            top: 15px;
+            top: 25px;
             z-index: 1;
+            box-shadow: var(--shadow);
         }
         
         .left {
@@ -216,110 +246,305 @@
         }
         
         .left::after {
-            right: -12px;
+            right: -14px;
         }
         
         .right::after {
-            left: -12px;
+            left: -14px;
         }
         
         .timeline-content {
-            padding: 20px;
-            background-color: white;
-            border-radius: 6px;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
             box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(37, 99, 235, 0.1);
+        }
+
+        .timeline-item:hover .timeline-content {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
         }
         
         .timeline-content h3 {
-            margin-bottom: 5px;
-            color: var(--primary);
+            margin-bottom: 8px;
+            color: var(--dark);
+            font-size: 1.3rem;
+            font-weight: 600;
         }
         
         .timeline-content h4 {
-            margin-bottom: 10px;
-            font-weight: normal;
-            font-style: italic;
-            color: #666;
+            margin-bottom: 15px;
+            font-weight: 500;
+            color: var(--primary);
+            font-size: 1.05rem;
         }
         
         .timeline-content p {
-            font-size: 0.95rem;
-        }
-        
-        .projects {
-            background-color: #f9f9f9;
+            font-size: 1rem;
+            color: var(--text-gray);
+            line-height: 1.6;
         }
         
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
         
         .project-card {
-            background-color: white;
-            border-radius: 10px;
+            background: white;
+            border-radius: 20px;
             overflow: hidden;
             box-shadow: var(--shadow);
-            transition: transform 0.3s;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(37, 99, 235, 0.1);
+            position: relative;
         }
         
         .project-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
         }
         
         .project-img {
-            height: 180px;
-            background-color: #e3f2fd;
+            height: 200px;
+            background: var(--gradient-accent);
             display: flex;
             justify-content: center;
             align-items: center;
-            color: var(--primary);
-            font-size: 3rem;
+            color: white;
+            font-size: 3.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-img::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 100%);
         }
         
         .project-info {
-            padding: 20px;
+            padding: 25px;
         }
         
         .project-info h3 {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            color: var(--dark);
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .project-info p {
+            color: var(--text-gray);
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .project-link {
             color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            color: var(--secondary);
+            transform: translateX(3px);
         }
         
         .project-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 5px;
-            margin-top: 15px;
+            gap: 8px;
+            margin-top: 20px;
         }
         
         .project-tag {
-            background-color: #e3f2fd;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(30, 64, 175, 0.1) 100%);
             color: var(--primary);
-            padding: 3px 10px;
+            padding: 6px 14px;
             border-radius: 20px;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid rgba(37, 99, 235, 0.2);
         }
         
         footer {
-            background-color: var(--dark);
+            background: var(--dark);
             color: white;
             text-align: center;
-            padding: 30px 0;
+            padding: 50px 0;
+            margin-top: 50px;
         }
         
         footer p {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
         }
         
         footer .social-links a {
+            background: rgba(255, 255, 255, 0.1);
             color: white;
-            margin: 0 10px;
-            font-size: 1.3rem;
+            margin: 0 8px;
+            font-size: 1.2rem;
+            width: 45px;
+            height: 45px;
+        }
+
+        footer .social-links a:hover {
+            background: var(--primary);
+        }
+
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-intro {
+            font-size: 1.15rem;
+            color: var(--text-gray);
+            line-height: 1.8;
+            margin-bottom: 50px;
+        }
+
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .contact-method {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(37, 99, 235, 0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .contact-method:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .contact-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2rem;
+            color: white;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-details h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+
+        .contact-details p {
+            color: var(--text-gray);
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        .contact-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(30, 64, 175, 0.1) 100%);
+            border-radius: 25px;
+            border: 1px solid rgba(37, 99, 235, 0.2);
+        }
+
+        .contact-link:hover {
+            color: white;
+            background: var(--gradient-accent);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        @media (max-width: 768px) {
+            .contact-methods {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .contact-method {
+                padding: 30px 20px;
+            }
+
+            .contact-icon {
+                width: 70px;
+                height: 70px;
+                font-size: 1.8rem;
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
         @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-text p {
+                font-size: 1.1rem;
+            }
+
+            .section {
+                padding: 40px 20px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
             .timeline::after {
                 left: 31px;
             }
@@ -341,6 +566,25 @@
             .right {
                 left: 0;
             }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-pic {
+                width: 130px;
+                height: 130px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 30px 15px;
+            }
         }
     </style>
 </head>
@@ -353,323 +597,432 @@
                 <p>ML Developer | AI Engineer | Cybersecurity Enthusiast</p>
             </div>
             <div class="social-links">
-                <a href="https://github.com/CodeRreaper69" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/sourabh-dey" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://huggingface.co/GenDey" target="_blank" <i class="fas fa-face-grin"></i></a>
-                <a href="https://X.com/DeyXSourabh" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://github.com/CodeRreaper69" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/sourabh-dey" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://huggingface.co/GenDey" target="_blank" aria-label="Hugging Face"><i class="fas fa-face-smile"></i></a>
+                <a href="https://X.com/DeyXSourabh" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
             </div>
         </div>
     </header>
 
-    <section id="about">
-        <div class="container">
-            <h2>About Me</h2>
-            <div class="quote">
-                "Python is to love, Linux is to marry, ML to date, DSA is to live with and Mathematics for life"
-            </div>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>With a strong foundation in Machine Learning, Deep Learning, and Mathematics, I have built numerous applications and worked on several projects that tackle real-life problems.</p>
-                    <p>Proficient in Python and Selenium, I focus on building automation systems to boost productivity and reduce manual effort. My experience with Unix-based OS, particularly Linux, allows me to specialize in system automation and OS development.</p>
-                    <p>Specialized in cybersecurity, I excel in securing systems against vulnerabilities and am proficient in neural networks for facial recognition and gestures. Beyond tech, I enjoy teaching math and exploring creative outlets like singing and content writing.</p>
+    <div class="container">
+        <!-- About Section -->
+        <div class="card fade-in">
+            <section class="section">
+                <h2 class="section-title">About Me</h2>
+                <div class="quote">
+                    "Python is to love, Linux is to marry, ML to date, DSA is to live with and Mathematics for life"
                 </div>
-                <div class="skills">
-                    <div class="skill-category">
-                        <h3>Technical Skills</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Python</span>
-                            <span class="skill-tag">Machine Learning</span>
-                            <span class="skill-tag">Deep Learning</span>
-                            <span class="skill-tag">Linux</span>
-                            <span class="skill-tag">Automation</span>
-                            <span class="skill-tag">Cybersecurity</span>
-                            <span class="skill-tag">Java</span>
-                            <span class="skill-tag">C</span>
-                            <span class="skill-tag">MATLAB</span>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h3>Core Competencies</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Neural Networks</span>
-                            <span class="skill-tag">Web Scraping</span>
-                            <span class="skill-tag">Selenium</span>
-                            <span class="skill-tag">MLOps</span>
-                            <span class="skill-tag">Fine-tuning LLMs</span>
-                            <span class="skill-tag">Computer Networks</span>
-                            <span class="skill-tag">IoT</span>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h3>Soft Skills</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Teaching</span>
-                            <span class="skill-tag">Problem Solving</span>
-                            <span class="skill-tag">Content Writing</span>
-                            <span class="skill-tag">Innovation</span>
-                        </div>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>With a strong foundation in Machine Learning, Deep Learning, and Mathematics, I have built numerous applications and worked on several projects that tackle real-life problems. My passion lies in creating innovative solutions that bridge the gap between theoretical concepts and practical applications.</p>
+                        <p>Proficient in Python and Selenium, I focus on building automation systems to boost productivity and reduce manual effort. My experience with Unix-based OS, particularly Linux, allows me to specialize in system automation and OS development, ensuring robust and scalable solutions.</p>
+                        <p>Beyond tech, I enjoy teaching mathematics and exploring creative outlets like singing and content writing, believing that creativity enhances technical problem-solving.</p>
                     </div>
                 </div>
-            </div>
+            </section>
         </div>
-    </section>
 
-    <section id="experience" class="experience">
-        <div class="container">
-            <h2>Experience</h2>
-            <div class="timeline">
-                <div class="timeline-item left">
-                    <div class="timeline-content">
-                        <h3>Subject Matter Expert</h3>
-                        <h4>Chegg Inc. | Jan 2025 - Apr 2025</h4>
-                        <p>Tutored undergraduate students on Mathematics, CS subjects and project development.</p>
+        <!-- Experience Section -->
+        <div class="card fade-in">
+            <section class="section">
+                <h2 class="section-title">Professional Experience</h2>
+                <div class="timeline">
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <h3>Subject Matter Expert</h3>
+                            <h4>Chegg Inc. | Jan 2025 - Apr 2025</h4>
+                            <p>Tutored undergraduate students on Mathematics, CS subjects and project development, helping them achieve academic excellence through personalized guidance and comprehensive problem-solving approaches.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <h3>Freelance Software Engineer</h3>
+                            <h4>Self-employed | Oct 2024 - Apr 2025</h4>
+                            <p>Building robust solutions across various tech stacks, specializing in ML-based products from websites to algorithmic development. Delivering end-to-end solutions for diverse client requirements.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <h3>ML Developer</h3>
+                            <h4>Syntalix | Jul 2024 - Jan 2025</h4>
+                            <p>Developed AI and Cybersecurity based products for optimization and enhancement, contributing to cutting-edge solutions that improved system performance and security protocols.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <h3>Engineering Mathematics Tutor</h3>
+                            <h4>Jul 2024 - Dec 2024</h4>
+                            <p>Taught engineering mathematics covering basics and advanced topics with daily doubt clearing and lecture videos, helping students master complex mathematical concepts.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <h3>Machine Learning Intern</h3>
+                            <h4>Syntalix | May 2024 - Aug 2024</h4>
+                            <p>Built real-life projects based on machine learning, core Python, automation, and ML applications, gaining hands-on experience in practical AI implementations.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <h3>Web Scraping and ML Intern</h3>
+                            <h4>TEOCO | Jun 2024 - Oct 2024</h4>
+                            <p>Worked on real-world projects optimizing cost structure and saving manual effort by automating workflows, resulting in significant operational improvements.</p>
+                        </div>
                     </div>
                 </div>
-                <div class="timeline-item right">
-                    <div class="timeline-content">
-                        <h3>Freelance Software Engineer</h3>
-                        <h4>Self-employed | Oct 2024 - Apr 2025</h4>
-                        <p>Building robust solutions across various tech stacks, specializing in ML-based products from websites to algorithmic development.</p>
-                    </div>
-                </div>
-                <div class="timeline-item left">
-                    <div class="timeline-content">
-                        <h3>ML Developer</h3>
-                        <h4>Syntalix | Jul 2024 - Jan 2025</h4>
-                        <p>Developed AI and Cybersecurity based products for optimization and enhancement.</p>
-                    </div>
-                </div>
-                <div class="timeline-item right">
-                    <div class="timeline-content">
-                        <h3>Engineering Mathematics Tutor</h3>
-                        <h4>Jul 2024 - Dec 2024</h4>
-                        <p>Taught engineering mathematics covering basics and advanced topics with daily doubt clearing and lecture videos.</p>
-                    </div>
-                </div>
-                <div class="timeline-item left">
-                    <div class="timeline-content">
-                        <h3>Machine Learning Intern</h3>
-                        <h4>Syntalix | May 2024 - Aug 2024</h4>
-                        <p>Built real-life projects based on machine learning, core Python, automation, and ML applications.</p>
-                    </div>
-                </div>
-                <div class="timeline-item right">
-                    <div class="timeline-content">
-                        <h3>Web Scraping and ML Intern</h3>
-                        <h4>TEOCO | Jun 2024 - Oct 2024</h4>
-                        <p>Worked on real-world projects optimizing cost structure and saving manual effort by automating workflows.</p>
-                    </div>
-                </div>
-            </div>
+            </section>
         </div>
-    </section>
 
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2>Featured Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-img">
-                        <i class="fas fa-search"></i>
+        <!-- Projects Section -->
+        <div class="card fade-in">
+            <section class="section">
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-img">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <div class="project-info">
+                            <h3>ANNOY-DEEPFACE Facial Search</h3>
+                            <p>Lightning-fast facial search using DeepFace + ANNOY, optimized for CPU-based deployments with exceptional performance and accuracy.</p>
+                            <a href="https://optimized-facial-search.streamlit.app/" target="_blank" class="project-link">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                            <div class="project-tags">
+                                <span class="project-tag">DeepFace</span>
+                                <span class="project-tag">ANNOY</span>
+                                <span class="project-tag">Computer Vision</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="project-info">
-                        <h3>ANNOY-DEEPFACE Facial Search</h3>
-                        <p>Lightning-fast facial search using DeepFace + ANNOY, optimized for CPU-based deployments.</p>
-                        <a href="https://optimized-facial-search.streamlit.app/" target="_blank" style="color: var(--primary); text-decoration: none;">🔗 Live Demo</a>
-                        <div class="project-tags">
-                            <span class="project-tag">DeepFace</span>
-                            <span class="project-tag">ANNOY</span>
-                            <span class="project-tag">Computer Vision</span>
+
+                    <div class="project-card">
+                        <div class="project-img">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="project-info">
+                            <h3>PLEDGE</h3>
+                            <p>AI-powered educational recommender platform with RAG pipeline and auto-generated roadmaps for personalized learning experiences.</p>
+                            <a href="https://pledge-course-recommender-mapper.streamlit.app/" target="_blank" class="project-link">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                            <div class="project-tags">
+                                <span class="project-tag">RAG</span>
+                                <span class="project-tag">AI</span>
+                                <span class="project-tag">Education</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-img">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <div class="project-info">
+                            <h3>MockViewer</h3>
+                            <p>AI interview simulator with facial/posture tracking and MoE-based evaluation system for comprehensive interview preparation.</p>
+                            <a href="https://mockvieweradvanced.streamlit.app/" target="_blank" class="project-link">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                            <div class="project-tags">
+                                <span class="project-tag">Computer Vision</span>
+                                <span class="project-tag">AI Evaluation</span>
+                                <span class="project-tag">MoE</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-img">
+                            <i class="fas fa-language"></i>
+                        </div>
+                        <div class="project-info">
+                            <h3>Hindi to Hinglish Converter</h3>
+                            <p>OCR + post-processing layer for accurate Hinglish output using AI, bridging language barriers effectively.</p>
+                            <a href="https://hindi-to-hinglish-converter-using-ai-gemini-by-sourabh-dey.streamlit.app/" target="_blank" class="project-link">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                            <div class="project-tags">
+                                <span class="project-tag">OCR</span>
+                                <span class="project-tag">NLP</span>
+                                <span class="project-tag">Gemini AI</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-img">
+                            <i class="fas fa-music"></i>
+                        </div>
+                        <div class="project-info">
+                            <h3>Sound Analyser</h3>
+                            <p>Tool to compare user singing with original audio using waveform similarity analysis for vocal improvement.</p>
+                            <a href="https://sound-quality-analysis-by-dey-sourabh.streamlit.app/" target="_blank" class="project-link">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                            <div class="project-tags">
+                                <span class="project-tag">Audio Processing</span>
+                                <span class="project-tag">Waveform Analysis</span>
+                                <span class="project-tag">Python</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-img">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="project-info">
+                            <h3>Fine-Tuned LLaMA 3 Chatbot</h3>
+                            <p>Fine-tuned LLaMA3 using LoRA + Unsloth for company-specific chatbot deployment with enhanced performance.</p>
+                            <a href="https://github.com/CodeRreaper69/Fine_tune_Llama3_for_chatbot" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                            <div class="project-tags">
+                                <span class="project-tag">LLaMA3</span>
+                                <span class="project-tag">LoRA</span>
+                                <span class="project-tag">Fine-tuning</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="project-card">
-                    <div class="project-img">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <div class="project-info">
-                        <h3>PLEDGE</h3>
-                        <p>AI-powered educational recommender platform with RAG pipeline and auto-generated roadmaps.</p>
-                        <a href="https://pledge-course-recommender-mapper.streamlit.app/" target="_blank" style="color: var(--primary); text-decoration: none;">🔗 Live Demo</a>
-                        <div class="project-tags">
-                            <span class="project-tag">RAG</span>
-                            <span class="project-tag">AI</span>
-                            <span class="project-tag">Education</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-img">
-                        <i class="fas fa-video"></i>
-                    </div>
-                    <div class="project-info">
-                        <h3>MockViewer</h3>
-                        <p>AI interview simulator with facial/posture tracking and MoE-based evaluation.</p>
-                        <a href="https://mockvieweradvanced.streamlit.app/" target="_blank" style="color: var(--primary); text-decoration: none;">🔗 Live Demo</a>
-                        <div class="project-tags">
-                            <span class="project-tag">Computer Vision</span>
-                            <span class="project-tag">AI Evaluation</span>
-                            <span class="project-tag">MoE</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-img">
-                        <i class="fas fa-language"></i>
-                    </div>
-                    <div class="project-info">
-                        <h3>Hindi to Hinglish Converter</h3>
-                        <p>OCR + post-processing layer for accurate Hinglish output using AI.</p>
-                        <a href="https://hindi-to-hinglish-converter-using-ai-gemini-by-sourabh-dey.streamlit.app/" target="_blank" style="color: var(--primary); text-decoration: none;">🔗 Live Demo</a>
-                        <div class="project-tags">
-                            <span class="project-tag">OCR</span>
-                            <span class="project-tag">NLP</span>
-                            <span class="project-tag">Gemini AI</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-img">
-                        <i class="fas fa-music"></i>
-                    </div>
-                    <div class="project-info">
-                        <h3>Sound Analyser</h3>
-                        <p>Tool to compare user singing with original audio using waveform similarity analysis.</p>
-                        <a href="https://sound-quality-analysis-by-dey-sourabh.streamlit.app/" target="_blank" style="color: var(--primary); text-decoration: none;">🔗 Live Demo</a>
-                        <div class="project-tags">
-                            <span class="project-tag">Audio Processing</span>
-                            <span class="project-tag">Waveform Analysis</span>
-                            <span class="project-tag">Python</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-img">
-                        <i class="fas fa-magic"></i>
-                    </div>
-                    <div class="project-info">
-                        <h3>AutoStreamliter</h3>
-                        <p>AI-powered tool that generates full Streamlit apps from simple user prompts.</p>
-                        <a href="https://autoapplicationtpgeneratorbysourabhdey.streamlit.app/" target="_blank" style="color: var(--primary); text-decoration: none;">🔗 Live Demo</a>
-                        <div class="project-tags">
-                            <span class="project-tag">Code Generation</span>
-                            <span class="project-tag">AI</span>
-                            <span class="project-tag">Streamlit</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-img">
-                        <i class="fas fa-image"></i>
-                    </div>
-                    <div class="project-info">
-                        <h3>Image Enhancer</h3>
-                        <p>AI-based image analysis and smart editing tool for enhanced visual quality.</p>
-                        <a href="https://enhance-image-using-ai-bysd.streamlit.app/" target="_blank" style="color: var(--primary); text-decoration: none;">🔗 Live Demo</a>
-                        <div class="project-tags">
-                            <span class="project-tag">Computer Vision</span>
-                            <span class="project-tag">Image Processing</span>
-                            <span class="project-tag">AI</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-img">
-                        <i class="fas fa-file-alt"></i>
-                    </div>
-                    <div class="project-info">
-                        <h3>MultiDataAgent</h3>
-                        <p>Internal backend tool that analyzes PDFs, JSON, GeoJSON and provides summaries and statistics.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Data Analysis</span>
-                            <span class="project-tag">PDF Processing</span>
-                            <span class="project-tag">Backend</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-img">
-                        <i class="fas fa-eye"></i>
-                    </div>
-                    <div class="project-info">
-                        <h3>Drowsiness Detection</h3>
-                        <p>Driver sleep detection model with alarm system. Winner - Spampurush Hackathon.</p>
-                        <a href="https://github.com/CodeRreaper69/DROWSINESS_DETECTION_ALARM" target="_blank" style="color: var(--primary); text-decoration: none;">🔗 GitHub</a>
-                        <div class="project-tags">
-                            <span class="project-tag">Computer Vision</span>
-                            <span class="project-tag">Safety</span>
-                            <span class="project-tag">OpenCV</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-img">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <div class="project-info">
-                        <h3>Fine-Tuned LLaMA 3 Chatbot</h3>
-                        <p>Fine-tuned LLaMA3 using LoRA + Unsloth for company-specific chatbot deployment.</p>
-                        <a href="https://github.com/CodeRreaper69/Fine_tune_Llama3_for_chatbot" target="_blank" style="color: var(--primary); text-decoration: none;">🔗 GitHub</a>
-                        <div class="project-tags">
-                            <span class="project-tag">LLaMA3</span>
-                            <span class="project-tag">LoRA</span>
-                            <span class="project-tag">Fine-tuning</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </section>
         </div>
-    </section>
 
-    <section id="research">
-	<div class="container">
-	    <h2>Research Publications</h2>
-	    <div class="timeline">
-		<div class="timeline-item left">
-		    <div class="timeline-content">
-			<h3>Maximizing Productivity: Leveraging Existing Resources and Advanced Technologies for Automation and Prompt Engineering</h3>
-			<h4>IEEE Xplore | 2024</h4>
-			<p>Explores automation and prompt engineering techniques to enhance productivity in everyday workflows, focusing on leveraging existing resources and advanced technologies.</p>
-			<a href="https://ieeexplore.ieee.org/document/10959567" target="_blank" style="color: var(--primary); text-decoration: none;">🔗 Read Paper</a>
-		    </div>
-		</div>
-	    </div>
-	</div>
-	</section>
-
-    <section id="education">
-        <div class="container">
-            <h2>Education</h2>
-            <div class="timeline">
-                <div class="timeline-item left">
-                    <div class="timeline-content">
-                        <h3>Bachelor of Technology - BTech, Computer Science</h3>
-                        <h4>Institute Of Engineering and Management | 2022 - 2026</h4>
-                        <p>Currently pursuing a degree in Computer Science with focus on AI and Machine Learning.</p>
+        <!-- Research Section -->
+        <div class="card fade-in">
+            <section class="section">
+                <h2 class="section-title">Research Publications</h2>
+                <div class="timeline">
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <h3>Maximizing Productivity: Leveraging Existing Resources and Advanced Technologies</h3>
+                            <h4>IEEE Xplore | 2024</h4>
+                            <p>Explores automation and prompt engineering techniques to enhance productivity in everyday workflows, focusing on leveraging existing resources and advanced technologies for optimal efficiency.</p>
+                            <a href="https://ieeexplore.ieee.org/document/10959567" target="_blank" class="project-link" style="margin-top: 10px; display: inline-flex;">
+                                <i class="fas fa-external-link-alt"></i> Read Paper
+                            </a>
+                        </div>
                     </div>
                 </div>
-                <div class="timeline-item right">
-                    <div class="timeline-content">
-                        <h3>Secondary Education</h3>
-                        <h4>Kendriya Vidyalaya | 2009 - 2021</h4>
-                        <p>Focused on Mathematics and Computer Science during secondary education.</p>
-                    </div>
-                </div>
-            </div>
+            </section>
         </div>
-    </section>
+
+        <!-- Education Section -->
+        <div class="card fade-in">
+            <section class="section">
+                <h2 class="section-title">Education</h2>
+                <div class="timeline">
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <h3>Bachelor of Technology - Computer Science</h3>
+                            <h4>Institute Of Engineering and Management | 2022 - 2026</h4>
+                            <p>Currently pursuing a degree in Computer Science with focus on AI and Machine Learning, maintaining excellent academic performance while engaging in various technical projects.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <h3>Secondary Education</h3>
+                            <h4>Kendriya Vidyalaya | 2009 - 2021</h4>
+                            <p>Focused on Mathematics and Computer Science during secondary education, building a strong foundation in analytical thinking and problem-solving skills.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="card fade-in">
+            <section class="section">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="contact-content">
+                    <p class="contact-intro">I'm always open to discussing new opportunities, collaborations, or just having a chat about technology and innovation. Feel free to reach out!</p>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Email Me</h3>
+                                <p>You can email me here</p>
+                                <a href="mailto:deysourabh8981@gmail.com" class="contact-link">deysourabh8981@gmail.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fab fa-linkedin"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>LinkedIn</h3>
+                                <p>Or you can DM me on my LinkedIn</p>
+                                <a href="https://www.linkedin.com/in/sourabh-dey" target="_blank" class="contact-link">Connect with me</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>One-on-One Session</h3>
+                                <p>Book a personalized session with me</p>
+                                <a href="https://topmate.io/sourabh_dey/1557595?utm_source=public_profile&utm_campaign=sourabh_dey" target="_blank" class="contact-link">Schedule on Topmate</a>
+                            </div>
+                        </div>
+						<div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fab fa-instagram"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3>Instagram</h3>
+                                <p>Follow me on Instagram, I release creativity there too!</p>
+                                <a href="https://www.instagram.com/c_major_sourabhh" target="_blank" class="contact-link">Connect with me</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
 
     <footer>
         <div class="container">
             <p>Feel free to reach out for collaborations or opportunities!</p>
             <div class="social-links">
-                <a href="https://github.com/CodeRreaper69" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/sourabh-dey" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://huggingface.co/GenDey" target="_blank"><i class="fas fa-face-smile"></i></a>
-                <a href="https://X.com/DeyXSourabh" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://github.com/CodeRreaper69" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/sourabh-dey" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://huggingface.co/GenDey" target="_blank" aria-label="Hugging Face"><i class="fas fa-face-smile"></i></a>
+                <a href="https://X.com/DeyXSourabh" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
             </div>
             <p>&copy; 2025 Sourabh Dey. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        // Enhanced animations and interactions
+        document.addEventListener('DOMContentLoaded', function() {
+            // Intersection Observer for fade-in animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.classList.add('fade-in');
+                        }, index * 100);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            // Observe all cards
+            document.querySelectorAll('.card').forEach(card => {
+                observer.observe(card);
+            });
+
+            // Enhanced hover effects for project cards
+            document.querySelectorAll('.project-card').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-8px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Add loading animation
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+                document.body.style.transform = 'translateY(0)';
+            }, 100);
+
+            // Parallax effect for header
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const header = document.querySelector('header');
+                if (header) {
+                    header.style.transform = `translateY(${scrolled * 0.5}px)`;
+                }
+            });
+
+            // Enhanced timeline animations
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            const timelineObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateX(0)';
+                    }
+                });
+            }, { threshold: 0.3 });
+
+            timelineItems.forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = item.classList.contains('left') ? 'translateX(-50px)' : 'translateX(50px)';
+                item.style.transition = `all 0.6s ease ${index * 0.1}s`;
+                timelineObserver.observe(item);
+            });
+
+            // Add click ripple effect to cards
+            document.querySelectorAll('.card').forEach(card => {
+                card.addEventListener('click', function(e) {
+                    const ripple = document.createElement('div');
+                    ripple.style.position = 'absolute';
+                    ripple.style.borderRadius = '50%';
+                    ripple.style.background = 'rgba(59, 130, 246, 0.3)';
+                    ripple.style.transform = 'scale(0)';
+                    ripple.style.animation = 'ripple 0.6s linear';
+                    ripple.style.left = (e.clientX - card.offsetLeft) + 'px';
+                    ripple.style.top = (e.clientY - card.offsetTop) + 'px';
+                    ripple.style.width = '20px';
+                    ripple.style.height = '20px';
+                    ripple.style.pointerEvents = 'none';
+                    
+                    card.style.position = 'relative';
+                    card.appendChild(ripple);
+                    
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+                });
+            });
+        });
+
+        // Add ripple animation keyframes
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+            
+            body {
+                opacity: 0;
+                transform: translateY(20px);
+                transition: all 0.6s ease;
+            }
+        `;
+        document.head.appendChild(style);
 </body>
 </html>
+	    
