@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -166,6 +167,19 @@
             background: var(--gradient-accent);
             border-radius: 2px;
         }
+		
+		.timeline-content a {
+			text-decoration: none; /* removes underline */
+			color: #0077b5; /* LinkedIn-like blue or pick your brand color */
+			font-weight: 600;
+			transition: color 0.3s ease;
+		}
+
+		.timeline-content a:hover {
+			color: #005580; /* darker shade on hover */
+			text-decoration: underline; /* optional: add underline only on hover */
+		}
+
         
         .quote {
             font-style: italic;
@@ -594,7 +608,7 @@
             <img src="assets/profile.jpg" alt="Sourabh Dey" class="profile-pic">
             <div class="hero-text">
                 <h1>Sourabh Dey</h1>
-                <p>AI Inten at CloudifyOps || Ex TEOCO || ML Developer || IEM '26 || Fine Tuning LLMs || MLops || Cyber security || Statistics and Mathematics || Automation || Deep learning || Computer Networks || Linux || OpenSource || Android || IoT</p>
+                <p>AI Intern at CloudifyOps || Ex-TEOCO || ML Developer || IEM '26 || Fine Tuning LLMs || MLops || Cyber security || Statistics and Mathematics || Automation || Deep learning || Computer Networks || Linux || OpenSource || Android || IoT</p>
             </div>
             <div class="social-links">
                 <a href="https://github.com/CodeRreaper69" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
@@ -624,62 +638,100 @@
         </div>
 
         <!-- Experience Section -->
-        <div class="card fade-in">
-            <section class="section">
-                <h2 class="section-title">Professional Experience</h2>
-                <div class="timeline">
-		    <div class="timeline-item left">
-                        <div class="timeline-content">
-                            <h3>AI Intern</h3>
-                            <h4>CloudifyOps</h4> | May 2025 - Present</h4>
-                            <p>Designing AI driven solutions on existing cloud technologies. Building AI agents, AGI workflows and intelligent pipelines.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item left">
-                        <div class="timeline-content">
-                            <h3>Subject Matter Expert</h3>
-                            <h4>Chegg Inc. | Jan 2025 - Apr 2025</h4>
-                            <p>Tutored undergraduate students on Mathematics, CS subjects and project development, helping them achieve academic excellence through personalized guidance and comprehensive problem-solving approaches.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item right">
-                        <div class="timeline-content">
-                            <h3>Freelance Software Engineer</h3>
-                            <h4>Self-employed | Oct 2024 - Apr 2025</h4>
-                            <p>Building robust solutions across various tech stacks, specializing in ML-based products from websites to algorithmic development. Delivering end-to-end solutions for diverse client requirements.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item left">
-                        <div class="timeline-content">
-                            <h3>ML Developer</h3>
-                            <h4>Syntalix | Jul 2024 - Jan 2025</h4>
-                            <p>Developed AI and Cybersecurity based products for optimization and enhancement, contributing to cutting-edge solutions that improved system performance and security protocols.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item right">
-                        <div class="timeline-content">
-                            <h3>Engineering Mathematics Tutor</h3>
-                            <h4>Jul 2024 - Dec 2024</h4>
-                            <p>Taught engineering mathematics covering basics and advanced topics with daily doubt clearing and lecture videos, helping students master complex mathematical concepts.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item left">
-                        <div class="timeline-content">
-                            <h3>Machine Learning Intern</h3>
-                            <h4>Syntalix | May 2024 - Aug 2024</h4>
-                            <p>Built real-life projects based on machine learning, core Python, automation, and ML applications, gaining hands-on experience in practical AI implementations.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item right">
-                        <div class="timeline-content">
-                            <h3>Web Scraping and ML Intern</h3>
-                            <h4>TEOCO | Jun 2024 - Oct 2024</h4>
-                            <p>Worked on real-world projects optimizing cost structure and saving manual effort by automating workflows, resulting in significant operational improvements.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
+		<div class="card fade-in">
+			<section class="section">
+				<h2 class="section-title">Professional Experience</h2>
+				<div class="timeline">
+				
+				
+					<div class="timeline-item left">
+						<div class="timeline-content">
+							<h3>AI Intern</h3>
+							<h4>
+								<a href="https://cloudifyops.com/" target="_blank">
+									<img src="assets/cloudifyops-logo.png" alt="CloudifyOps" style="height:40px; vertical-align:middle;"> CloudifyOps
+								</a>
+							</h4>
+							<p class="date">Present</p>
+							<p>Designing AI-driven solutions on existing cloud technologies. Building AI agents, AGI workflows, and intelligent pipelines.</p>
+						</div>
+					</div>
+					
+					<div class="timeline-item right">
+						<div class="timeline-content">
+							<h3>Web Automation and ML Intern</h3>
+							<h4>
+								<a href="https://www.teoco.com/" target="_blank">
+									<img src="assets/teoco-logo-2.JPG" alt="TEOCO" style="height:70px; vertical-align:middle;"> TEOCO
+								</a> 
+							</h4>
+							<p class="date">Jun 2024 - Oct 2024</p>
+							<p>Worked on real-world projects optimizing cost structures and saving manual effort by automating workflows, resulting in significant operational improvements.</p>
+						</div>
+					</div>
+					<div class="timeline-item left">
+						<div class="timeline-content">
+							<h3>ML Developer</h3>
+							<h4>
+								<a href="https://syntalix-vite.vercel.app/" target="_blank">
+									<img src="assets/syntalix-logo.JPG" alt="Syntalix" style="height:40px; vertical-align:middle;"> Syntalix
+								</a> 
+							</h4>
+							<p class="date">Jul 2024 - Jan 2025</p>
+							<p>Developed AI and cybersecurity-based products for optimization and enhancement, contributing to cutting-edge solutions that improved system performance and security protocols.</p>
+						</div>
+					</div>
+					<div class="timeline-item right">
+						<div class="timeline-content">
+							<h3>ML Intern</h3>
+							<h4>
+								<a href="https://syntalix-vite.vercel.app/" target="_blank">
+									<img src="assets/syntalix-logo.JPG" alt="Syntalix" style="height:40px; vertical-align:middle;"> Syntalix
+								</a> 
+							</h4>
+							<p class="date">May 2024 - Aug 2024</p>
+							<p>Built real-life projects based on machine learning, core Python, automation, and ML applications, gaining hands-on experience in practical AI implementations.</p>
+						</div>
+					</div>
+					<div class="timeline-item left">
+						<div class="timeline-content">
+							<h3>Freelancing Software Engineer</h3>
+							<h4>
+								<a href="https://rm-eng-sd-services.vercel.app" target="_blank">
+									<img src="assets/rm-logo.JPEG" alt="RM Engineering Services" style="height:40px; vertical-align:middle;"> RM ENGINEERING SERVICES
+								</a> 
+							</h4>
+							<p class="date">Oct 2024 - Apr 2025</p>
+							<p>Building robust solutions across various tech stacks, specializing in ML-based products from websites to algorithmic development. Delivering end-to-end solutions for diverse client requirements.</p>
+						</div>
+					</div>
+					<div class="timeline-item right">
+						<div class="timeline-content">
+							<h3>Subject Matter Expert</h3>
+							<h4>
+								<a href="https://www.chegg.com/" target="_blank">
+									<img src="assets/chegg-logo.png" alt="Chegg" style="height:20px; vertical-align:middle;"> Chegg Inc.
+								</a> 
+							</h4>
+							<p class="date">Jan 2025 - Apr 2025</p>
+							<p>Tutored undergraduate students on Mathematics, CS subjects, and project development, helping them achieve academic excellence through personalized guidance and comprehensive problem-solving approaches.</p>
+						</div>
+					</div>
+					<div class="timeline-item left">
+						<div class="timeline-content">
+							<h3>Engineering Mathematics Tutor</h3>
+							<h4>
+								<a href="https://topmate.io/sourabh_dey" target="_blank">
+									<img src="assets/topmate-logo.JPG" alt="TopMate" style="height:40px; vertical-align:middle;"> TopMate
+								</a> 
+							</h4>
+							<p class="date">Jul 2024 - Dec 2024</p>
+							<p>Taught engineering mathematics covering basics and advanced topics with daily doubt clearing and lecture videos, helping students master complex mathematical concepts.</p>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
 
         <!-- Projects Section -->
         <div class="card fade-in">
@@ -817,27 +869,38 @@
         </div>
 
         <!-- Education Section -->
-        <div class="card fade-in">
-            <section class="section">
-                <h2 class="section-title">Education</h2>
-                <div class="timeline">
-                    <div class="timeline-item left">
-                        <div class="timeline-content">
-                            <h3>Bachelor of Technology - Computer Science</h3>
-                            <h4>Institute Of Engineering and Management | 2022 - 2026</h4>
-                            <p>Currently pursuing a degree in Computer Science with focus on AI and Machine Learning, maintaining excellent academic performance while engaging in various technical projects.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item right">
-                        <div class="timeline-content">
-                            <h3>Secondary Education</h3>
-                            <h4>Kendriya Vidyalaya | 2009 - 2021</h4>
-                            <p>Focused on Mathematics and Computer Science during secondary education, building a strong foundation in analytical thinking and problem-solving skills.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
+		<div class="card fade-in">
+			<section class="section">
+				<h2 class="section-title">Education</h2>
+				<div class="timeline">
+					<div class="timeline-item left">
+						<div class="timeline-content">
+							<h3>Bachelor of Technology - Computer Science</h3>
+							<h4>
+								<a href="https://iem.edu.in/" target="_blank">
+									<img src="assets/iem-logo.png" alt="IEM" style="height:40px; vertical-align:middle;"> Institute Of Engineering and Management
+								</a>
+							</h4>
+							<p class="date">2022 - 2026</p>
+							<p>Currently pursuing a degree in Computer Science with focus on AI and Machine Learning, maintaining excellent academic performance while engaging in various technical projects.</p>
+						</div>
+					</div>
+					<div class="timeline-item right">
+						<div class="timeline-content">
+							<h3>Secondary Education</h3>
+							<h4>
+								<a href="https://kvsangathan.nic.in/" target="_blank">
+									<img src="assets/kv-logo.JPG" alt="Kendriya Vidyalaya" style="height:55px; vertical-align:middle;"> Kendriya Vidyalaya
+								</a>
+							</h4>
+							<p class="date">2009 - 2021</p>
+							<p>Focused on Mathematics and Computer Science during secondary education, building a strong foundation in analytical thinking and problem-solving skills.</p>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+
 
         <!-- Contact Section -->
         <div class="card fade-in">
@@ -876,7 +939,7 @@
                             <div class="contact-details">
                                 <h3>One-on-One Session</h3>
                                 <p>Book a personalized session with me</p>
-                                <a href="https://topmate.io/sourabh_dey" target="_blank" class="contact-link">Schedule on Topmate</a>
+                                <a href="https://topmate.io/sourabh_dey/1557595?utm_source=public_profile&utm_campaign=sourabh_dey" target="_blank" class="contact-link">Schedule on Topmate</a>
                             </div>
                         </div>
 						<div class="contact-method">
@@ -886,14 +949,15 @@
                             <div class="contact-details">
                                 <h3>Instagram</h3>
                                 <p>Follow me on Instagram, I release creativity there too!</p>
-                                <a href="https://www.instagram.com/c_major_sourabhh" target="_blank" class="contact-link">Follow Me</a>
+                                <a href="https://www.instagram.com/c_major_sourabhh" target="_blank" class="contact-link">Connect with me</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
         </div>
-    </div>
+	 </div>
+
 
     <footer>
         <div class="container">
